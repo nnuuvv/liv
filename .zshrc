@@ -91,7 +91,7 @@ fi
 path+=('/snap/bin')
 
 
-# Ensure snap is installed
+# Ensure brew is installed
 if [ ! -d "/home/linuxbrew" ]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
@@ -99,13 +99,13 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 
 # Ensure fzf is installed
-if [! -d "$HOME/.fzf/" ]; then
+if [ ! -d "$HOME/.fzf/" ]; then
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     $HOME/.fzf/install.sh | sh
 fi
 
 # Ensure zoxide is installed
-if [ ! -d "$HOME/.local/bin/zoxide/" ]; then
+if [ ! -f "$HOME/.local/bin/zoxide" ]; then
     curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 fi
 
