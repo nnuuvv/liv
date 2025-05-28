@@ -77,6 +77,9 @@ alias vim='nvim'
 eval "$(zoxide init --cmd cd zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+path+=('/snap/bin')
+path+=('/home/linuxbrew/.linuxbrew/bin')
+
 eval $(thefuck --alias)
 
 # Set ghcup-env
