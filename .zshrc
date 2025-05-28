@@ -33,10 +33,6 @@ zinit light Aloxaf/fzf-tab
 # Add in snippets
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
-zinit snippet OMZP::archlinux
-zinit snippet OMZP::aws
-zinit snippet OMZP::kubectl
-zinit snippet OMZP::kubectx
 zinit snippet OMZP::command-not-found
 
 # Load completions
@@ -83,31 +79,8 @@ eval "$(zoxide init --cmd cd zsh)"
 
 eval $(thefuck --alias)
 
-# Ensure snap is installed
-if [ ! -d "/snap/bin" ]; then
-    sudo apt update
-    sudo apt install snapd
-fi
-path+=('/snap/bin')
-
-
-# Ensure brew is installed
-if [ ! -d "/home/linuxbrew" ]; then
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-
-# Ensure fzf is installed
-if [ ! -d "$HOME/.fzf/" ]; then
-    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    $HOME/.fzf/install.sh | sh
-fi
-
-# Ensure zoxide is installed
-if [ ! -f "$HOME/.local/bin/zoxide" ]; then
-    curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
-fi
-
 # Set ghcup-env
 [ -f "$HOME/.ghcup/env" ] && . "$HOME/.ghcup/env"
+
+# Set rust-env
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
